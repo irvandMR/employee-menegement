@@ -1,0 +1,17 @@
+.btn-add {
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid green;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: green;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+  background-color: darkgreen;
+}

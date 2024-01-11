@@ -1,0 +1,76 @@
+<div class="layout-login" [formGroup]="formLogin">
+  <div class="card">
+    <div class="row">
+      <div class="col-8">
+        <h1>Employee Management</h1>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="name@example.com"
+        formControlName="username"
+        [ngClass]="{
+          'border-danger ng-invalid':
+            (formLogin.get('username')?.touched ||
+              formLogin.get('username')?.dirty) &&
+            !formLogin.get('username')?.valid
+        }"
+      />
+      <div class="col-7">
+        <small
+          *ngIf="
+            (formLogin.get('username')?.touched ||
+              formLogin.get('username')?.dirty) &&
+            formLogin.get('username')?.hasError('required')
+          "
+          class="error-field"
+        >
+          The field cannot be empty
+        </small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >Password</label
+      > 
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="*********"
+        class="form-control"
+        id="inputPassword"
+        [ngClass]="{
+          'border-danger ng-invalid':
+            (formLogin.get('password')?.touched ||
+              formLogin.get('password')?.dirty) &&
+            !formLogin.get('password')?.valid
+        }"
+      />
+      <div class="col-7">
+        <small
+          *ngIf="
+            (formLogin.get('password')?.touched ||
+              formLogin.get('password')?.dirty) &&
+            formLogin.get('password')?.hasError('required')
+          "
+          class="error-field"
+        >
+          The field cannot be empty
+        </small>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <btn-save (onClick)="onLogin()" label="Login"></btn-save>
+    </div>
+  </div>
+</div>
+<app-toast
+  [show]="showToast"
+  color="red"
+  [message]="toastMessage"
+></app-toast>

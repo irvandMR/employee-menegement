@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="row">
+    <div class="col-12 border-1 border-bottom pb-2">
+      <div class="row align-items-center">
+        <div class="col-6">
+          <h1>{{title}}</h1>
+        </div>
+        <div class="col-6 text-end">
+          <btn-add label="Add" (onClick)="onAdd()"></btn-add>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="row flex-column-reverse flex-md-row">
+        <div class="col-md-3 order-md-2">
+          <btn-select [value]="group" (onClick)="onSelect($event)"></btn-select>
+        </div>
+
+        <div class="col-md-3 order-md-1">
+          <app-search
+            (search)="onSearch($event)"
+            label="Search username"
+          ></app-search>
+        </div>
+      </div>
+    </div>
+    <app-table
+      #TableComponent
+      [columns]="columnMap"
+      [list]="listData"
+      [selectedGroup]="selected"
+      [searchTerm]="searchText"
+      (action)="tableAction($event)"
+    ></app-table>
+  </div>
+</div>
+<app-toast [show]="showToast" color="red" [message]="toastMessage"></app-toast>
+<app-toast
+  [show]="showToastEdit"
+  color="yellow"
+  [message]="toastMessageEdit"
+></app-toast>

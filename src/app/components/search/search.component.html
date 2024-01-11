@@ -1,0 +1,10 @@
+<div class="col me-3">
+  <input
+    type="text"
+    [placeholder]="label"
+    class="form-control"
+    id="inputPassword"
+    [(ngModel)]="searchText"
+    (input)="onSearch()"
+  />
+</div>

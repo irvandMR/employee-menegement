@@ -1,0 +1,271 @@
+<div class="card">
+  <div class="row">
+    <div class="col-12 border-1 border-bottom pb-2">
+      <div class="row align-items-center">
+        <div class="col-6">
+          <h1>{{ title }}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mt-3" [formGroup]="formAdd">
+      <div class="row">
+        <div class="col-xl-6 col-sm-12">
+          <div class="row mb-4">
+            <div class="col-4 flex align-items-center">
+              <label for="username" class="required">Username</label>
+            </div>
+            <div class="col-8">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="username"
+                placeholder="ex: Rizky Irvandi"
+                [ngClass]="{
+                  'border-danger ng-invalid':
+                    (formAdd.get('username')?.touched ||
+                      formAdd.get('username')?.dirty) &&
+                    !formAdd.get('username')?.valid
+                }"
+              />
+              <small
+                *ngIf="
+                  formAdd.get('username')?.touched &&
+                  formAdd.get('username')?.hasError('required')
+                "
+                class="error-field"
+              >
+                The field cannot be empty
+              </small>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 flex align-items-center">
+              <label for="firstname" class="required">Firstname</label>
+            </div>
+            <div class="col-8">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="firstName"
+                placeholder="ex: Rizky"
+                [ngClass]="{
+                  'border-danger ng-invalid':
+                    (formAdd.get('firstName')?.touched ||
+                      formAdd.get('firstName')?.dirty) &&
+                    !formAdd.get('firstName')?.valid
+                }"
+              />
+              <small
+                *ngIf="
+                  formAdd.get('firstName')?.touched &&
+                  formAdd.get('firstName')?.hasError('required')
+                "
+                class="error-field"
+              >
+                The field cannot be empty
+              </small>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 flex align-items-center">
+              <label for="lastname" class="required">Lastname</label>
+            </div>
+            <div class="col-8">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lastName"
+                placeholder="ex: Irvandi"
+                [ngClass]="{
+                  'border-danger ng-invalid':
+                    (formAdd.get('lastName')?.touched ||
+                      formAdd.get('lastName')?.dirty) &&
+                    !formAdd.get('lastName')?.valid
+                }"
+              />
+              <small
+                *ngIf="
+                  formAdd.get('lastName')?.touched &&
+                  formAdd.get('lastName')?.hasError('required')
+                "
+                class="error-field"
+              >
+                The field cannot be empty
+              </small>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 flex align-items-center">
+              <label for="email" class="required">Email</label>
+            </div>
+            <div class="col-8">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="email"
+                placeholder="ex: irvandi@xample.com"
+                [ngClass]="{
+                  'border-danger ng-invalid':
+                    (formAdd.get('email')?.touched ||
+                      formAdd.get('email')?.dirty) &&
+                    !formAdd.get('email')?.valid
+                }"
+              />
+              <small
+                *ngIf="
+                  formAdd.get('email')?.touched &&
+                  formAdd.get('email')?.hasError('required')
+                "
+                class="error-field"
+              >
+                The field cannot be empty
+              </small>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 flex align-items-center">
+              <label for="description" class="required">Description</label>
+            </div>
+            <div class="col-8">
+              <textarea
+                rows="5"
+                cols="30"
+                class="form-control"
+                area
+                formControlName="description"
+                [ngClass]="{
+                  'border-danger ng-invalid':
+                    (formAdd.get('description')?.touched ||
+                      formAdd.get('description')?.dirty) &&
+                    !formAdd.get('description')?.valid
+                }"
+              ></textarea>
+              <small
+                *ngIf="
+                  formAdd.get('description')?.touched &&
+                  formAdd.get('description')?.hasError('required')
+                "
+                class="error-field"
+              >
+                The field cannot be empty
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-sm-12">
+          <div class="row mb-4">
+            <div class="col-4 flex align-items-center">
+              <label for="birthDate" class="required">Birth Date</label>
+            </div>
+            <div class="col-8">
+              <input
+                type="date"
+                class="form-control"
+                formControlName="birthDate"
+                max="{{ today | date : 'yyyy-MM-dd' }}"
+                [ngClass]="{
+                  'border-danger ng-invalid':
+                    (formAdd.get('basicSalary')?.touched ||
+                      formAdd.get('basicSalary')?.dirty) &&
+                    !formAdd.get('basicSalary')?.valid
+                }"
+              />
+              <small
+                *ngIf="
+                  formAdd.get('basicSalary')?.touched &&
+                  formAdd.get('basicSalary')?.hasError('required')
+                "
+                class="error-field"
+              >
+                The field cannot be empty
+              </small>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 flex align-items-center">
+              <label for="basicSalary" class="required">Basic Salary</label>
+            </div>
+            <div class="col-8">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="ex: 4000000"
+                formControlName="basicSalary"
+                [ngClass]="{
+                  'border-danger ng-invalid':
+                    (formAdd.get('basicSalary')?.touched ||
+                      formAdd.get('basicSalary')?.dirty) &&
+                    !formAdd.get('basicSalary')?.valid
+                }"
+              />
+              <small
+                *ngIf="
+                  formAdd.get('basicSalary')?.touched &&
+                  formAdd.get('basicSalary')?.hasError('required')
+                "
+                class="error-field"
+              >
+                The field cannot be empty
+              </small>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 flex align-items-center">
+              <label for="basicSalary" class="required">Group</label>
+            </div>
+            <div class="col-8">
+              <btn-select
+                [value]="group"
+                (onClick)="onSelect($event)"
+                [ngClass]="{
+                  'border-danger ng-invalid':
+                    (formAdd.get('group')?.touched ||
+                      formAdd.get('group')?.dirty) &&
+                    !formAdd.get('group')?.valid
+                }"
+              ></btn-select>
+              <small
+                *ngIf="
+                  formAdd.get('group')?.touched &&
+                  formAdd.get('group')?.hasError('required')
+                "
+                class="error-field"
+              >
+                The field cannot be empty
+              </small>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-4 flex align-items-center">
+              <label for="status" class="required">Status</label>
+            </div>
+            <div class="col-8 flex align-items-center">
+              <input
+                class="form-check-input me-2"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                [checked]="formAdd.get('status')?.value === 'Active'"
+                (change)="selectStatus($event)"
+              />
+
+              {{ formAdd.get("status")?.value }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col d-flex justify-content-end">
+      <btn-cancel (onClick)="onCancel()"></btn-cancel>
+      <btn-save (onClick)="onSave()"></btn-save>
+    </div>
+  </div>
+</div>
+
+<app-toast
+  [show]="showToast"
+  color="green"
+  [message]="toastMessage"
+></app-toast>

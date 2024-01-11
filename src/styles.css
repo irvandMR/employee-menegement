@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  padding: 4rem;
+}
+.card {
+  border-radius: 5px;
+  padding: 3rem;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+}
+
+.layout-login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error-field {
+  color: red;
+}
+
+.required:after {
+  content: " *";
+  color: red;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

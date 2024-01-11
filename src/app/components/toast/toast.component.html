@@ -1,0 +1,10 @@
+<div
+  *ngIf="show"
+  [ngClass]="{
+    'toast-error': color == 'red',
+    'toast-success': color == 'green',
+    'toast-edit': color == 'yellow'
+  }"
+>
+  {{ message }}
+</div>

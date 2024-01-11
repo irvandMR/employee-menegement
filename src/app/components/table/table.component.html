@@ -1,0 +1,51 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th *ngFor="let item of columns" scope="col">{{ item.label }}</th>
+        <th style="min-width: 200px; text-align: center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of pagedData; let i = index">
+        <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+        <td scope="row" *ngFor="let column of columns">
+          <span *ngIf="!column.isCurency">
+            {{ data[column.key] }}
+          </span>
+          <span *ngIf="column.isCurency">{{
+            data[column.key] | currencyToIdr
+          }}</span>
+        </td>
+        <td style="min-width: 400px; text-align: center">
+          <btn-view (onClick)="onAction(data, 'view')"></btn-view>
+          <btn-delete (onClick)="onAction(data, 'delete')"></btn-delete>
+          <btn-edit (onClick)="onAction(data, 'edit')"></btn-edit>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<nav aria-label="Page navigation example" class="mt-3">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" aria-label="Previous" (click)="prevPage()">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li
+      class="page-item"
+      style="cursor: pointer"
+      *ngFor="let page of totalPagesArray"
+      [class.active]="page === currentPage"
+    >
+      <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" aria-label="Next" (click)="nextPage()">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
