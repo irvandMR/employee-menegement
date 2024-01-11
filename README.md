@@ -7,8 +7,8 @@ node v18.13.0
 
 ### Login
 
-username = user
-password = password
+* username = user
+* password = password
 
 ## Installing
 
