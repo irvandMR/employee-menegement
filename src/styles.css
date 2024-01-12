@@ -33,3 +33,21 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.button {
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #3498db;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #3498db;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
