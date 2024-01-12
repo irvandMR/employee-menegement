@@ -1,19 +1,33 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'btn-select',
   templateUrl: './btn-select.component.html',
   styleUrls: ['./btn-select.component.css'],
 })
-export class BtnSelectComponent {
-  @Input() value: any = [];
-//   @Input() isSearch: boolean = false;
+export class BtnSelectComponent implements OnInit {
+  @Input() value: any[] = [];
   @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
-  
-  selected: string = '';
+  precisionValue!: string;
+  selectedName: string = '';
+  filteredValue: any[] = [];
+
+  ngOnInit() {
+    this.filteredValue = this.value;
+  }
 
   click(e: any) {
-    this.selected = e.name;
+    this.selectedName = e.name;
     this.onClick.emit(e);
+  }
+  filterValue() {
+    if (!this.precisionValue) {
+      this.filteredValue = this.value;
+      return;
+    }
+
+    this.filteredValue = this.value.filter((item) =>
+      item.name.toLowerCase().includes(this.precisionValue.toLowerCase())
+    );
   }
 }

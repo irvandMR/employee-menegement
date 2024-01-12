@@ -5,31 +5,27 @@
     data-bs-toggle="dropdown"
     aria-expanded="false"
   >
-    <ng-container *ngIf="!selected"> Select a Group </ng-container>
-    <ng-container *ngIf="selected"> {{ selected }} </ng-container>
+    <ng-container *ngIf="!selectedName"> Select a Group </ng-container>
+    <ng-container *ngIf="selectedName"> {{ selectedName }} </ng-container>
   </button>
 
   <ul class="dropdown-menu w-100">
-    <li *ngFor="let item of value">
+    <li>
+      <form class="px-3 py-2">
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="precisionInput"
+            [(ngModel)]="precisionValue"
+            name="precisionInput"
+            (input)="filterValue()"
+          />
+        </div>
+      </form>
+    </li>
+    <li *ngFor="let item of filteredValue">
       <a class="dropdown-item" (click)="click(item)">{{ item.name }}</a>
     </li>
   </ul>
 </div>
-<!-- 
-<div class="dropdown btn-select-search" *ngIf="isSearch">
-  <button
-    class="btn-select-search dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    <ng-container *ngIf="!selected"> Select a Group </ng-container>
-    <ng-container *ngIf="selected"> {{ selected }} </ng-container>
-  </button>
-
-  <ul class="dropdown-menu w-100">
-    <li *ngFor="let item of value">
-      <a class="dropdown-item" (click)="click(item)">{{ item.name }}</a>
-    </li>
-  </ul>
-</div> -->
