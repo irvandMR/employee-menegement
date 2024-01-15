@@ -11,9 +11,19 @@
       <tr *ngFor="let data of pagedData; let i = index">
         <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
         <td scope="row" *ngFor="let column of columns">
-          <span *ngIf="!column.isCurency">
+          <span *ngIf="!column.isCurency && !column.isStatus">
             {{ data[column.key] }}
           </span>
+          <span
+            style="text-align: center"
+            *ngIf="column.isStatus"
+            [ngClass]="{
+              'span-active': data[column.key] === 'Active',
+              'span-inactive': data[column.key] === 'Inactive'
+            }"
+            >{{ data[column.key] }}</span
+          >
+
           <span *ngIf="column.isCurency">{{
             data[column.key] | currencyToIdr
           }}</span>

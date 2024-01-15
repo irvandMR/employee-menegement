@@ -166,15 +166,15 @@
                 max="{{ today | date : 'yyyy-MM-dd' }}"
                 [ngClass]="{
                   'border-danger ng-invalid':
-                    (formAdd.get('basicSalary')?.touched ||
-                      formAdd.get('basicSalary')?.dirty) &&
-                    !formAdd.get('basicSalary')?.valid
+                    (formAdd.get('birthDate')?.touched ||
+                      formAdd.get('birthDate')?.dirty) &&
+                    !formAdd.get('birthDate')?.valid
                 }"
               />
               <small
                 *ngIf="
-                  formAdd.get('basicSalary')?.touched &&
-                  formAdd.get('basicSalary')?.hasError('required')
+                  formAdd.get('birthDate')?.touched &&
+                  formAdd.get('birthDate')?.hasError('required')
                 "
                 class="error-field"
               >

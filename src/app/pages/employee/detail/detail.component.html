@@ -91,7 +91,14 @@
               <span style="float: right">:</span>
             </div>
             <div class="col-8">
-              {{ data?.status }}
+              <span
+                [ngClass]="{
+                  'span-active': data?.status === 'Active',
+                  'span-inactive': data?.status === 'Inactive'
+                }"
+              >
+                {{ data?.status }}
+              </span>
             </div>
           </div>
         </div>

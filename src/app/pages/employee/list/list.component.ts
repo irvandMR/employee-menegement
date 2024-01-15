@@ -49,6 +49,7 @@ export class ListComponentEmployee {
     {
       label: 'Status',
       key: 'status',
+      isStatus: true,
     },
   ];
 
